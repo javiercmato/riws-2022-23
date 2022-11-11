@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-shop',
@@ -18,7 +19,9 @@ export class ShopComponent implements OnInit {
   });
   allComplete: boolean = false;
 
-  constructor() {}
+  constructor(
+    private searchService: SearchService
+  ) {}
 
   ngOnInit(): void {}
 
