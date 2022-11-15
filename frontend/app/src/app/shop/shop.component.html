@@ -1,8 +1,8 @@
 <!-- Shop Start -->
 <div class="w-full h-full flex-col">
-  <div class="flex-row px-5">
+  <div class="flex-row px-5" style="display: flex; width: 100%">
     <!-- Shop Sidebar Start -->
-    <div>
+    <div style="width: 10%">
       <form [formGroup]="filters">
         <!-- Price Start -->
         <div class="border-bottom mb-4 pb-4">
@@ -38,192 +38,70 @@
                 formControlName="price10"
                 (ngModelChange)="updateAllComplete()"
               ></mat-checkbox>
-              <mat-label for="price10">5€-10€</mat-label>
+              <mat-label for="price10">10€-50€</mat-label>
             </div>
-            
+
             <div class="items-center justify-between mb-3">
               <mat-checkbox
                 id="priceHigh"
                 formControlName="priceHigh"
                 (ngModelChange)="updateAllComplete()"
               ></mat-checkbox>
-              <mat-label for="priceHigh">>10€</mat-label>
+              <mat-label for="priceHigh">>100€</mat-label>
             </div>
           </form>
         </div>
         <!-- Price End -->
 
-        <!-- Color Start -->
+        <!-- Category Start -->
         <div class="border-bottom mb-4 pb-4">
-          <h5>Filter by color</h5>
-          <form>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                checked
-                id="color-all"
-              />
-              <label class="custom-control-label" for="priceAll"
-                >All Color</label
-              >
-              <span class="badge border font-weight-normal">1000</span>
+          <h5>Filter by Category</h5>
+          <form formGroupName="categories">
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="categoryAll"
+                formControlName="categoryAll"
+                [checked]="allComplete"
+                [indeterminate]="someComplete()"
+                (change)="setAll($event.checked)"
+              ></mat-checkbox>
+              <mat-label for="categoryAll">All Categories</mat-label>
             </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="color-1"
-              />
-              <label class="custom-control-label" for="color-1">Black</label>
-              <span class="badge border font-weight-normal">150</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="color-2"
-              />
-              <label class="custom-control-label" for="color-2">White</label>
-              <span class="badge border font-weight-normal">295</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="color-3"
-              />
-              <label class="custom-control-label" for="color-3">Red</label>
-              <span class="badge border font-weight-normal">246</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="color-4"
-              />
-              <label class="custom-control-label" for="color-4">Blue</label>
-              <span class="badge border font-weight-normal">145</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="color-5"
-              />
-              <label class="custom-control-label" for="color-5">Green</label>
-              <span class="badge border font-weight-normal">168</span>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="category1"
+                formControlName="category1"
+                (ngModelChange)="updateAllComplete()"
+              ></mat-checkbox>
+              <mat-label for="category1">Bebidas</mat-label>
             </div>
           </form>
         </div>
-        <!-- Color End -->
+        <!-- Category End -->
 
-        <!-- Size Start -->
-        <div class="mb-5">
-          <h5>Filter by size</h5>
-          <form>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                checked
-                id="size-all"
-              />
-              <label class="custom-control-label" for="size-all"
-                >All Size</label
-              >
-              <span class="badge border font-weight-normal">1000</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="size-1"
-              />
-              <label class="custom-control-label" for="size-1">XS</label>
-              <span class="badge border font-weight-normal">150</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="size-2"
-              />
-              <label class="custom-control-label" for="size-2">S</label>
-              <span class="badge border font-weight-normal">295</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="size-3"
-              />
-              <label class="custom-control-label" for="size-3">M</label>
-              <span class="badge border font-weight-normal">246</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="size-4"
-              />
-              <label class="custom-control-label" for="size-4">L</label>
-              <span class="badge border font-weight-normal">145</span>
-            </div>
-            <div
-              class="custom-control custom-checkbox d-flex align-items-center justify-content-between"
-            >
-              <input
-                matInput
-                type=""
-                class="custom-control-input matInput"
-                id="size-5"
-              />
-              <label class="custom-control-label" for="size-5">XL</label>
-              <span class="badge border font-weight-normal">168</span>
+        <!-- Offers Start -->
+        <div class="border-bottom mb-4 pb-4">
+          <h5>Filter by Offers</h5>
+          <form formGroupName="Offers">
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="offersOnly"
+                formControlName="offers"
+                (ngModelChange)="updateAllComplete()"
+              ></mat-checkbox>
+              <mat-label for="offersOnly">Only Offers</mat-label>
             </div>
           </form>
         </div>
+        <!-- Offers End -->
+
       </form>
-      <!-- Size End -->
+
     </div>
     <!-- Shop Sidebar End -->
 
     <!-- Shop Product Start -->
-    <div class="col-lg-9 col-md-12">
+    <div class="col-lg-9 col-md-12" style="width: 80%">
       <div class="row pb-3">
         <div class="col-12 pb-1">
           <div class="d-flex align-items-center justify-content-between mb-4">
