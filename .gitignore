@@ -1,1 +1,4 @@
 frontend/app/node_modules
+
+*.vscode
+*.DS_Store
