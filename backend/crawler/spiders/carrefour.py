@@ -7,13 +7,14 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.remote_connection import LOGGER, logging
-#from selenium.webdriver.support.ui import WebDriverWait as browserWait
-#from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait as browserWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
-DYNAMIC_CONTENT_LOAD_TIME = 5               # Segundos a esperar para que cargue el contenido dinámico
+DYNAMIC_CONTENT_LOAD_TIME = 15               # Segundos a esperar para que cargue el contenido dinámico
 
 
-def printHTML(source_code, tabSpaces = 2):
+def printHTML(source_code):
     '''Función auxiliar que muestra por pantalla e identado el HTML recibido'''
     if (type(source_code) is not bytes):
         html = source_code.get_attribute('innerHTML')
@@ -54,16 +55,13 @@ class CarrefourSpider(CrawlSpider):
     )
     # Categorías a explorar
     desiredCategoriesName = [
-        # "Productos Frescos",
-        # "La Despensa",
+        "Productos Frescos",
+        "La Despensa",
         "Bebidas",
-        #"Limpieza y Hogar",
-        #"Perfumería e Higiene",
-        #"Parafarmacia",
-    ]
-    # Número de productos extraídos con este Spider
-    parsed_products = 0
-
+        "Limpieza y Hogar",
+        "Perfumería e Higiene",
+        "Parafarmacia",
+    ] #
     def __init__(self):
         """Prepara el Spider y una instancia del navegador"""
         super().__init__(self)
@@ -71,13 +69,13 @@ class CarrefourSpider(CrawlSpider):
         browserOptions.add_argument("--headless")                              # Navegador no abre una nueva ventana
         LOGGER.setLevel(logging.WARNING)                                       # Navegador solo muestra peticiones HTTP que realiza (no muestra cuerpo del mensaje ni cabeceras)
         capabilities = browserOptions.to_capabilities()
-        self.browser = webdriver.Chrome(chrome_options=browserOptions)
-        self.browser_aux = webdriver.Chrome(chrome_options=browserOptions)
+        self.browser = webdriver.Chrome(chrome_options=browserOptions)              # Navegador para obtener los enlaces
+        self.products_browser = webdriver.Chrome(chrome_options=browserOptions)     # Navegador para obtener los productos
 
 
     def __del__(self):
         '''Cierra el navegador al cerrar el Spider'''
-        self.browser_aux.quit()
+        self.products_browser.quit()
         self.browser.quit()
 
     def parse_web_map(self, response):
@@ -213,8 +211,8 @@ class CarrefourSpider(CrawlSpider):
 
 
     def parse_products_from_grid(self, response, parsedData):
-        self.browser_aux.get(response.url)
-        source_code = self.scroll_down_products_page()            # Scrollear para cargar más productos
+        self.products_browser.get(response.url)
+        source_code = self.load_dynamic_content_from_page(response.url)            # Scrollear para cargar más productos
         parser = BeautifulSoup(source_code, 'html.parser')
 
         print('>> PARSEANDO PRODUCTOS DE ' + response.url)
@@ -223,7 +221,7 @@ class CarrefourSpider(CrawlSpider):
         for card in productCardsList:
             product = self.parse_product(card, parsedData)
             products.append(product)
-
+        
         return products        
 
 
@@ -296,28 +294,36 @@ class CarrefourSpider(CrawlSpider):
         dropdown.click()
 
 
-    def scroll_down_products_page(self):
+    def load_dynamic_content_from_page(self, page_url):
         '''Hace scroll hasta el último item de la página para cargar el contenido dinámico y devuelve el contenido de la página'''
         # https://scrapfly.io/blog/web-scraping-with-selenium-and-python/
         scroll_to_last_item_script = """
-            productCards = document.querySelectorAll(".product-card");
-            lastCard = productCards[productCards.length - 1]
-            lastCard.scrollIntoView()
+            window.scrollTo(0, document.body.scrollHeight);
+            let productCards = document.querySelectorAll(".product-card-list__item");
+            let lastCard = productCards[productCards.length - 1];
+            lastCard.scrollIntoView();
         """
-        self.browser_aux.execute_script(scroll_to_last_item_script)
+        self.products_browser.execute_script(scroll_to_last_item_script)
 
         # Espera a que se carge el contenido dinámico
-        self.browser_aux.implicitly_wait(DYNAMIC_CONTENT_LOAD_TIME)
-        # browserWait(self.browser_aux, 2*DYNAMIC_CONTENT_LOAD_TIME)\
-        #     .until(EC.invisibility_of_element_located((By.XPATH, '//img[contains(@class, "product-card__image") and contains(@lazy, "loading")]')))
-
-        return self.browser_aux.page_source
+        try:
+            # self.products_browser.implicitly_wait(DYNAMIC_CONTENT_LOAD_TIME)
+            browserWait(self.products_browser, DYNAMIC_CONTENT_LOAD_TIME).until(
+                # Espera hasta que no exista ninguna tarjeta que tenga tenga una imagen cargando
+                EC.visibility_of_element_located(
+                    (By.XPATH, '//img[ @class="product-card__image" and contains(@lazy, "loaded") ]')
+                )
+            )
+        except TimeoutException:
+            print('Error al cargar dinámicamente los elementos de ' + str(page_url))
+        finally:
+            return self.products_browser.page_source
 
 
     def visit_next_results_page(self, response):
         '''Hace click en el botón para ir a la siguiente página de resultados, si existe'''
         parser = BeautifulSoup(response.body, 'html.parser')
-
+        
         # Busca el contenedor con los botones para cambiar de página
         paginationContainer = parser.find('div', 'pagination_container', recursive=True)
         if (paginationContainer is not None):
@@ -325,6 +331,6 @@ class CarrefourSpider(CrawlSpider):
             nextPageButton = list(paginationContainer.find_all('a', '', recursive=True))[-1]
             nextPageLink = nextPageButton['href']
 
-            # print('>> Visitando siguiente página ' + str(nextPageLink))
+            print('>> Visitando siguiente página ' + str(nextPageLink))
             yield Request(nextPageLink, callback = self.extract_data)
 
