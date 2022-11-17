@@ -1,20 +1,26 @@
 <!-- Shop Start -->
 <div class="w-full h-full flex-col">
-  <div class="flex-row px-5" style="display: flex; width: 100%">
-    <!-- Shop Sidebar Start -->
-    <div style="width: 10%">
+  <div class="flex flex-row border-black px-5">
+    <mat-form-field class="example-form-field" appearance="fill">
+    <input matInput type="text" [(ngModel)]="searchName">
+      <button *ngIf="searchName" matSuffix mat-icon-button (click)="search()">
+      </button>
+    <mat-icon>search</mat-icon>
+  </mat-form-field>
+  <!-- Shop Sidebar Start -->
+    <div class="flex flex-col w-1/6">
       <form [formGroup]="filters">
         <!-- Price Start -->
-        <div class="border-bottom mb-4 pb-4">
+        <div class=" mb-4 pb-4">
           <h5>Filter by category</h5>
-          <form formGroupName="prices">
+          <div formGroupName="prices">
             <div class="items-center justify-between mb-3">
               <mat-checkbox
                 id="priceAll"
                 formControlName="priceAll"
-                [checked]="allComplete"
-                [indeterminate]="someComplete()"
-                (change)="setAll($event.checked)"
+                [checked]="allPricesComplete"
+                [indeterminate]="somePricesComplete()"
+                (change)="setAllPrices($event.checked)"
               ></mat-checkbox>
               <mat-label for="priceAll">All Price</mat-label>
             </div>
@@ -22,13 +28,17 @@
               <mat-checkbox
                 id="price1"
                 formControlName="price1"
-                (ngModelChange)="updateAllComplete()"
+                (ngModelChange)="updateAllPricesComplete()"
               ></mat-checkbox>
               <mat-label for="price1">0€-1€</mat-label>
             </div>
 
             <div class="items-center justify-between mb-3">
-              <mat-checkbox id="price5" formControlName="price5" (ngModelChange)="updateAllComplete()"></mat-checkbox>
+              <mat-checkbox
+                id="price5"
+                formControlName="price5"
+                (ngModelChange)="updateAllPricesComplete()"
+              ></mat-checkbox>
               <mat-label for="price5">1€-5€</mat-label>
             </div>
 
@@ -36,7 +46,7 @@
               <mat-checkbox
                 id="price10"
                 formControlName="price10"
-                (ngModelChange)="updateAllComplete()"
+                (ngModelChange)="updateAllPricesComplete()"
               ></mat-checkbox>
               <mat-label for="price10">10€-50€</mat-label>
             </div>
@@ -45,58 +55,101 @@
               <mat-checkbox
                 id="priceHigh"
                 formControlName="priceHigh"
-                (ngModelChange)="updateAllComplete()"
+                (ngModelChange)="updateAllPricesComplete()"
               ></mat-checkbox>
-              <mat-label for="priceHigh">>100€</mat-label>
+              <mat-label for="priceHigh">>50€</mat-label>
             </div>
-          </form>
+          </div>
         </div>
         <!-- Price End -->
 
         <!-- Category Start -->
-        <div class="border-bottom mb-4 pb-4">
+        <div class="border-black mb-4 pb-4">
           <h5>Filter by Category</h5>
-          <form formGroupName="categories">
+          <div formGroupName="categories">
             <div class="items-center justify-between mb-3">
               <mat-checkbox
                 id="categoryAll"
                 formControlName="categoryAll"
-                [checked]="allComplete"
-                [indeterminate]="someComplete()"
-                (change)="setAll($event.checked)"
+                [checked]="allCategoriesComplete"
+                [indeterminate]="someCategoriesComplete()"
+                (change)="setAllCategories($event.checked)"
               ></mat-checkbox>
               <mat-label for="categoryAll">All Categories</mat-label>
             </div>
             <div class="items-center justify-between mb-3">
               <mat-checkbox
-                id="category1"
-                formControlName="category1"
-                (ngModelChange)="updateAllComplete()"
+                id="productosFrescos"
+                formControlName="productosFrescos"
+                (ngModelChange)="updateAllCategoriesComplete()"
               ></mat-checkbox>
-              <mat-label for="category1">Bebidas</mat-label>
+              <mat-label for="productosFrescos">Productos frescos</mat-label>
             </div>
-          </form>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="conservas"
+                formControlName="conservas"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="conservas">Conservas</mat-label>
+            </div>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="refrescos"
+                formControlName="refrescos"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="refrescos">Refrescos</mat-label>
+            </div>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="farmacia"
+                formControlName="farmacia"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="farmacia">Farmacia</mat-label>
+            </div>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="perfumes"
+                formControlName="perfumes"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="perfumes">Perfumes</mat-label>
+            </div>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="higiene"
+                formControlName="higiene"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="higiene">Higiene</mat-label>
+            </div>
+            <div class="items-center justify-between mb-3">
+              <mat-checkbox
+                id="limpieza"
+                formControlName="limpieza"
+                (ngModelChange)="updateAllCategoriesComplete()"
+              ></mat-checkbox>
+              <mat-label for="limpieza">Limpieza</mat-label>
+            </div>
+          </div>
         </div>
         <!-- Category End -->
 
         <!-- Offers Start -->
         <div class="border-bottom mb-4 pb-4">
           <h5>Filter by Offers</h5>
-          <form formGroupName="Offers">
             <div class="items-center justify-between mb-3">
               <mat-checkbox
                 id="offersOnly"
                 formControlName="offers"
-                (ngModelChange)="updateAllComplete()"
               ></mat-checkbox>
               <mat-label for="offersOnly">Only Offers</mat-label>
             </div>
-          </form>
         </div>
         <!-- Offers End -->
-
       </form>
-
     </div>
     <!-- Shop Sidebar End -->
 
