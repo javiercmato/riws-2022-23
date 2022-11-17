@@ -25,48 +25,31 @@ export class ElasticService {
       price50: boolean;
       priceHigh: boolean;
     },
-    hasDiscount: boolean
+    hasDiscount: boolean,
+    sort: string
   ): any {
     const body = {
-      _source: ['price', 'category', 'hasDiscount'],
+      _source: ['prices', 'categories', 'hasDiscount'],
       size: 100,
+      path: 'carrefour',
       query: {
         bool: {
           must: [
             {
               match: {
-                name: name !== undefined ? name : '',
+                // Se incluyen los tres criterios de búsqueda
+                prices: prices !== undefined ? prices : null,
+                category: categories !== undefined ? categories : null,
+                hasDiscount: hasDiscount !== undefined ? hasDiscount : null,
               },
+              sort: [
+                // Se pone por defecto que ordene por el precio de forma descendiente
+                {'carrefour.price' : {
+                  order: sort,
+                  }}
+              ]
             },
-            // {
-            //   nested: {
-            //     path: 'carrefour',
-            //     query: {
-            //       bool: {
-            //         must: [],
-            //       },
-            //     },
-            //     inner_hits: {
-            //       _source: [
-            //         'carrefour.category',
-            //         'carrefour.subcategory',
-            //         'carrefour.branch',
-            //         'carrefour.pictureURL',
-            //         'carrefour.shop',
-            //         'carrefour.badges',
-            //         'carrefour.prices',
-            //       ],
-            //       size: 100,
-            //       sort: [
-            //         {
-            //           'carrefour.price': {
-            //             order: 'desc',
-            //           },
-            //         },
-            //       ],
-            //     },
-            //   },
-            // },
+
           ],
         },
       },
@@ -109,6 +92,16 @@ export class ElasticService {
       }
 
       });
+
+    if (hasDiscount !== undefined) {
+        //Object.entries(objeto) devuelve un array de tuplas [propiedad, valor], donde propiedad es el nombre de la misma y valor, su valor (en este caso, booleanos)
+        Object.entries(prices).forEach((priceCriteria) => {
+          let matchObject: any = {};
+          matchObject.term.hasDiscount = hasDiscount;
+
+          body.query.bool.must.push(matchObject);
+        });
+      }
     }
     // if (prices != undefined) {
 
@@ -119,43 +112,6 @@ export class ElasticService {
     //   );
     // };
 
-    // if (hasDiscount !== undefined) {
-    //   body.query.bool.must.push({ match: { hasDiscount: hasDiscount } });
-    // }
-
-    // if (carrefour !== undefined) {
-    //   body.query.bool.must.push({ match: { carrefour: carrefour } });
-    // }
-
-    // if (branch !== undefined) {
-    //   body.query.bool.must[0].nested.query.bool.must.push({
-    //     range: { 'carrefour.branch': { gte: branch } },
-    //   });
-    // }
-
-    // if (pictureURL !== undefined) {
-    //   body.query.bool.must[0].nested.query.bool.must.push({
-    //     range: { 'carrefour.pictureURL': { gte: pictureURL } },
-    //   });
-    // }
-
-    // if (shop !== undefined) {
-    //   body.query.bool.must[0].nested.query.bool.must.push({
-    //     range: { 'carrefour.shop': { gte: shop } },
-    //   });
-    // }
-
-    // if (badges !== undefined) {
-    //   body.query.bool.must[0].nested.query.bool.must.push({
-    //     range: { 'carrefour.badges': { gte: badges } },
-    //   });
-    // }
-
-    // if (prices !== undefined) {
-    //   body.query.bool.must[0].nested.query.bool.must.push({
-    //     range: { 'carrefour.prices': { gte: prices } },
-    //   });
-    // }
 
     const res = this.httpClient.post(
       'url del elastic, definir como constante en algún lado',
@@ -175,7 +131,7 @@ export class ElasticService {
   // perfumes: boolean;
   // higiene: boolean;
   // limpieza: boolean;
-  
+
   // private mergeHits(res) {
   //   return res.hits.hits.map((hits) => {
   //     const carrefour = hits._source;
@@ -197,7 +153,9 @@ export class ElasticService {
   //     })
   //     .flat();
   // }
+
   private assignRangeFromPriceCriteria(priceCriteria: [string, boolean]): any {
+
     // "price1": true,
     // "price5": true,
     // "price10": true,
