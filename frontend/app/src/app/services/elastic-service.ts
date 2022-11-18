@@ -40,7 +40,7 @@ export class ElasticService {
       sort: [
         // Se pone por defecto que ordene por el precio de forma ascendente
         {
-          'price.totalPrice': {
+          'prices.totalPrice': {
             order: sort === undefined ? 'asc' : sort,
           },
         },
@@ -106,7 +106,7 @@ export class ElasticService {
     });
 
     return this.httpClient.post(
-      'https://localhost:9200',
+      'https://localhost:9200/products/_search',
       {
         index: 'products',
         body: body,

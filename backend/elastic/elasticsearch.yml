@@ -1,8 +1,6 @@
-xpack:
-  security:
-    enabled: false
-    http:
-      ssl: enabled
-    transport:
-      ssl:
-        enabled : false
+xpack.security.enabled: false
+    # http:
+    #   ssl: enabled
+    # transport:
+    #   ssl:
+    #     enabled : false

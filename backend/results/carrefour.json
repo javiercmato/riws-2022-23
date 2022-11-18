@@ -1,0 +1,719 @@
+[
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Jamoncitos de pollo Carrefour 1,2 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/962349_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,34 \u20ac",
+            "unitPrice": "4,45 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pechuga de pollo Carrefour 1,2 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/961474_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "6,59 \u20ac",
+            "unitPrice": "5,49 \u20ac/kg",
+            "priceBefore": "7,07 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pechuga de pollo fileteada 1,4 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/961475_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "9,45 \u20ac",
+            "unitPrice": "6,75 \u20ac/kg",
+            "priceBefore": "10,57 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pechuga de pavo fileteada Carrefour 600 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/039636_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,19 \u20ac",
+            "unitPrice": "8,65 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pechuga de pollo corte extrafino Roler 320 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/324133_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "4,50 \u20ac",
+            "unitPrice": "4,50 \u20ac/ud",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Contramuslo de pollo Carrefour 1,2 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/961476_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,46 \u20ac",
+            "unitPrice": "4,55 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Trasero de Pollo Carrefour 1,5 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/961472_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "4,78 \u20ac",
+            "unitPrice": "3,19 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Solomillo de pavo 750 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/039639_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,84 \u20ac",
+            "unitPrice": "7,79 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pollo campero limpio Calidad y Origen Carrefour 1,8 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/826990_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "11,16 \u20ac",
+            "unitPrice": "6,20 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Traseros de pollo certificado 1 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/887246_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "4,85 \u20ac",
+            "unitPrice": "4,85 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Jamoncitos de pollo certificado Carrefour 600 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/094666_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "3,53 \u20ac",
+            "unitPrice": "5,89 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Medallones de pechuga de pavo marinado a las finas hierbas 600 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/497507_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "6,12 \u20ac",
+            "unitPrice": "10,20 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Medio pollo troceado 1 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/248849_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,50 \u20ac",
+            "unitPrice": "5,50 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Aves y Pollo",
+        "name": "Pechuga de pavo adobada ElPozo 330 gr",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/735610_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten",
+            "Sin lactosa"
+        ],
+        "prices": {
+            "totalPrice": "2,80 \u20ac",
+            "unitPrice": "8,48 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Filete de cadera de babilla de a\u00f1ojo Calidad y Origen Carrefour 550 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/126608_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "6,04 \u20ac",
+            "unitPrice": "10,99 \u20ac/kg",
+            "priceBefore": "8,24 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Cadera o babilla de a\u00f1ojo Calidad y Origen Carrefour 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/842678_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,49 \u20ac",
+            "unitPrice": "10,99 \u20ac/kg",
+            "priceBefore": "7,49 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Preparado de carne picada de vacuno Calidad y Origen Carrefour 400 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/126715_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "3,99 \u20ac",
+            "unitPrice": "9,97 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Morcillo de a\u00f1ojo Calidad y Origen Carrefour 550 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/126605_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,49 \u20ac",
+            "unitPrice": "9,99 \u20ac/kg",
+            "priceBefore": "7,14 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Carpaccio de vacuno ecol\u00f3gico Carrefour Bio 120 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/477312_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Bio"
+        ],
+        "prices": {
+            "totalPrice": "3,20 \u20ac",
+            "unitPrice": "26,67 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Carpaccio de vacuno marinado Roler 110 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/393681_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten"
+        ],
+        "prices": {
+            "totalPrice": "3,25 \u20ac",
+            "unitPrice": "29,55 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Redondo de a\u00f1ojo Calidad y Origen  Carrefour 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/842660_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "7,49 \u20ac",
+            "unitPrice": "14,99 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Entrecot/Lomo de a\u00f1ojo Calidad y Origen Carrefour 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/842661_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "7,94 \u20ac",
+            "unitPrice": "15,89 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Entrecot de a\u00f1ojo ecol\u00f3gico Carrefour Bio 350 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/126469_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Bio"
+        ],
+        "prices": {
+            "totalPrice": "13,74 \u20ac",
+            "unitPrice": "22,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Entrecot de Vacuno Angus Carrefour Selection 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/007142_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "13,99 \u20ac",
+            "unitPrice": "27,99 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Vacuno",
+        "name": "Filete de a\u00f1ojo ecol\u00f3gico Carrefour Bio 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/126462_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Bio"
+        ],
+        "prices": {
+            "totalPrice": "9,40 \u20ac",
+            "unitPrice": "18,80 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Solomillo de cerdo Carrefour 1,2 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/518437_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "7,07 \u20ac",
+            "unitPrice": "5,89 \u20ac/kg",
+            "priceBefore": "7,19 \u20ac",
+            "hasDiscount": true
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Chuleta de aguja de cerdo Carrefour 1 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/149007_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "3 \u20ac",
+            "unitPrice": "3 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Filetes de cinta de lomo de cerdo Carrefour 800 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/620851_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "2,79 \u20ac",
+            "unitPrice": "3,49 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Costilla de Cerdo Semicarnuda Carrefour 700 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/006822_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "3,99 \u20ac",
+            "unitPrice": "5,70 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "EScalopin de lomo de cerdo fresco marinado El Pozo Extratiernos 600 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/284171_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten",
+            "Sin lactosa"
+        ],
+        "prices": {
+            "totalPrice": "4,50 \u20ac",
+            "unitPrice": "7,50 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Jam\u00f3n de cerdo troceado Carrefour 600 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/047350_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "2,99 \u20ac",
+            "unitPrice": "4,99 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Lomo Ib\u00e9rico de cerdo adobado 200 g",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/147601_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten"
+        ],
+        "prices": {
+            "totalPrice": "4,55 \u20ac",
+            "unitPrice": "22,75 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Filete de lomo de cerdo C\u00edrculo de Calidad 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/677672_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "3,52 \u20ac",
+            "unitPrice": "7,05 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Solomillo de cerdo adobado Extratiernos El Pozo 700 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/980753_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten",
+            "Sin lactosa"
+        ],
+        "prices": {
+            "totalPrice": "7,83 \u20ac",
+            "unitPrice": "11,19 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Secreto de cerdo C\u00edrculo de Calidad 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/677669_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "5,95 \u20ac",
+            "unitPrice": "11,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Panceta fileteada de cerdo C\u00edrculo de Calidad 800 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/677664_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "7,16 \u20ac",
+            "unitPrice": "8,95 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Solomillo de cerdo C\u00edrculo de Calidad 850 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/677677_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "7,91 \u20ac",
+            "unitPrice": "9,30 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Filete de lomo de cerdo ib\u00e9rico Carrefour 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/517470_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten"
+        ],
+        "prices": {
+            "totalPrice": "10,40 \u20ac",
+            "unitPrice": "20,80 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cerdo",
+        "name": "Solomillo de Cerdo Ib\u00e9rico Carrefour 500 g aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/517464_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten"
+        ],
+        "prices": {
+            "totalPrice": "9,45 \u20ac",
+            "unitPrice": "18,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cordero",
+        "name": "Octavo chuleteado de cordero C\u00edrculo de Calidad 1,2 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/553276_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten",
+            "Sin lactosa"
+        ],
+        "prices": {
+            "totalPrice": "22,68 \u20ac",
+            "unitPrice": "18,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cordero",
+        "name": "Paletilla de cordero C\u00edrculo de Calidad 1 kg aprox",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/553278_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [
+            "Sin gluten",
+            "Sin lactosa"
+        ],
+        "prices": {
+            "totalPrice": "18,90 \u20ac",
+            "unitPrice": "18,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cordero",
+        "name": "Pierna de cordero envasada al vac\u00edo 1,3 kg aprox AC",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/397649_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "20,67 \u20ac",
+            "unitPrice": "15,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    },
+    {
+        "category": "Productos Frescos",
+        "subcategory": "Carnicer\u00eda",
+        "branch": "Cordero",
+        "name": "Paletilla de cordero envasado al vac\u00edo 500 g aprox AC",
+        "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/397664_00_1.jpg",
+        "shop": "Carrefour",
+        "badges": [],
+        "features": [],
+        "prices": {
+            "totalPrice": "9,95 \u20ac",
+            "unitPrice": "19,90 \u20ac/kg",
+            "priceBefore": null,
+            "hasDiscount": false
+        }
+    }
+]
