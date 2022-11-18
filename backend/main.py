@@ -86,10 +86,10 @@ def create_elastic_index(client: Elasticsearch):
             'badges': {'type': 'text'},
             'features': {'type': 'text'},
             'prices': {'properties': {
-                'totalPrice': 'text',
-                'unitPrice': 'text',
-                'priceBefore': 'text',
-                'hasDiscount': 'boolean'
+                'totalPrice': {'type' : 'text'},
+                'unitPrice': {'type' : 'text'},
+                'priceBefore': {'type' : 'text'},
+                'hasDiscount': {'type' : 'boolean'}
             }},
         }, 
     )
@@ -113,24 +113,24 @@ def actions_generator(products):
         yield document
 
 
-async def index_products(products, client):
+def index_products(products, client):
     '''Introduce los productos en Elastic'''
     print('## Indexando datos en Elastic...')
-    indexed_products = sum(indexed for (indexed, _) in streaming_bulk(
+    indexed_products = sum(indexed for indexed, _ in streaming_bulk(
             client=client,
             index=constants.ELASTICSEARCH_INDEX_NAME,
             actions=actions_generator(products)
         )
     )
 
-    percentage_products_indexed = float( 100 * (index_products / len(products)))
-    print(f'## Se han indexado {indexed_products} de {len(products)} : ({percentage_products_indexed}) %')
+    percentage_products_indexed = float( 100 * (indexed_products / len(products)))
+    print(f'## Se han indexado {indexed_products} de {len(products)} : ({str(percentage_products_indexed)}) %')
 
 
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-async def main():
+def main():
     # Obtener los datos
     products = load_or_crawl_results()
 
@@ -143,10 +143,11 @@ async def main():
     create_elastic_index(elasticClient)
 
     # Guardar productos en Elastic
-    await index_products(products, elasticClient)
+    index_products(products, elasticClient)
+
+    return 0
     
 
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    main()

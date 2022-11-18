@@ -164,7 +164,7 @@ class CarrefourSpider(CrawlSpider):
             yield product
 
         # Obtener siguiente pagina de resultados paginados
-        yield self.visit_next_results_page(response)
+        self.visit_next_results_page(response)
 
         
 
