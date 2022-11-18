@@ -65,13 +65,16 @@ def crawl_results():
     crawlProcess.start()
 
     # Procesar resultados obtenidos
+    print('## Finalizado proceso de crawling...')
     process_results()
 
 
 def create_elastic_index(client: Elasticsearch):
     '''Crea un índice en ElasticSearch para guardar los elementos recuperados'''
     # Si el índice ya existía, se borra para crear uno nuevo y limpio
-    client.indices.delete(index=constants.ELASTICSEARCH_INDEX_NAME)
+    if (client.indices.exists(index=constants.ELASTICSEARCH_INDEX_NAME).meta.status == 200):
+        print('## Borrando índices anteriores...')
+        client.indices.delete(index=constants.ELASTICSEARCH_INDEX_NAME)
 
     print(f'## Creando el índice \'{constants.ELASTICSEARCH_INDEX_NAME}\' en ElasticSearch...')
     client.indices.create(index=constants.ELASTICSEARCH_INDEX_NAME)
@@ -86,7 +89,7 @@ def create_elastic_index(client: Elasticsearch):
             'badges': {'type': 'text'},
             'features': {'type': 'text'},
             'prices': {'properties': {
-                'totalPrice': {'type' : 'text'},
+                'totalPrice': {'type' : 'text', 'fielddata': 'true'},
                 'unitPrice': {'type' : 'text'},
                 'priceBefore': {'type' : 'text'},
                 'hasDiscount': {'type' : 'boolean'}

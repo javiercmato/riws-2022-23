@@ -58,8 +58,8 @@ class CarrefourSpider(CrawlSpider):
         "Bebidas",
         "Productos Frescos",
         "La Despensa",
-        "Limpieza y Hogar",
-        "Perfumería e Higiene",
+        #"Limpieza y Hogar",
+        #"Perfumería e Higiene",
         #"Parafarmacia",
     ] #
     def __init__(self):
