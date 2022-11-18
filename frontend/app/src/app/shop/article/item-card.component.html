@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{ item.shop }}</mat-card-title>
+    <mat-card-subtitle>{{ item.branch }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="item.pictureURL" [alt]="item.name" />
+  <mat-card-content>
+    <p>
+        {{ item.badges }}
+    </p>
+    <p>
+        {{ item.features }}
+    </p>
+    <p>
+        {{ 'Precio: '}} <span class="line-through" *ngIf="item.prices.hasDiscount"> {{ item.prices.priceBefore }} </span> <span> {{ item.prices.totalPrice }} </span>
+    </p>
+    <p>
+        {{ 'La unidad vale: '}} <span> {{ item.prices.unitPrice }} </span>
+    </p>
+  </mat-card-content>
+</mat-card>

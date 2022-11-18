@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs';
 import { ElasticService } from '../services/elastic-service';
-import { SearchService } from '../services/search.service';
+import { Item } from './types';
 
 @Component({
   selector: 'app-shop',
-  templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.scss'],
+  templateUrl: './shop.component.html'
 })
 export class ShopComponent implements OnInit {
   filters: FormGroup = new FormGroup({
@@ -28,7 +28,7 @@ export class ShopComponent implements OnInit {
       higiene: new FormControl<boolean>(false),
       limpieza: new FormControl<boolean>(false)
     }),
-    offersAll: new FormControl<boolean>(true),
+    offersAll: new FormControl<boolean>(false),
   });
 
   allPricesComplete: boolean = false;
@@ -36,11 +36,17 @@ export class ShopComponent implements OnInit {
 
   searchName: string = '';
 
+  sort!: 'asc' | 'desc';
+
+  items!: Item[];
+
   constructor(
     private searchService: ElasticService,
     ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.search();
+  }
 
   updateAllPricesComplete() {
     //this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
@@ -153,7 +159,10 @@ export class ShopComponent implements OnInit {
   }
 
   search(): void {
-    console.log(this.searchService.getCarrefourItems(this.searchName, this.getCategoriesFormValues(), this.getPricesFormValues(), this.filters.get('offersAll')?.value));
+    this.searchService.getCarrefourItems(this.searchName, this.getCategoriesFormValues(), this.getPricesFormValues(), this.filters.get('offersAll')?.value, this.sort).pipe(take(1)).subscribe((response: any) => {
+      console.log(response)
+      //this.items = reponse.hits;
+    });
   }
 
 }

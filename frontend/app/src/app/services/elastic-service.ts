@@ -29,27 +29,21 @@ export class ElasticService {
     sort: string
   ): any {
     const body = {
-      _source: ['prices', 'categories', 'hasDiscount'],
       size: 100,
-      path: 'carrefour',
+      sort: [
+        // Se pone por defecto que ordene por el precio de forma ascendente
+        {
+          'price.totalPrice': {
+            order: sort === undefined ? 'asc' : sort,
+          },
+        },
+      ],
       query: {
         bool: {
           must: [
             {
-              match: {
-                // Se incluyen los tres criterios de búsqueda
-                prices: prices !== undefined ? prices : null,
-                category: categories !== undefined ? categories : null,
-                hasDiscount: hasDiscount !== undefined ? hasDiscount : null,
-              },
-              sort: [
-                // Se pone por defecto que ordene por el precio de forma descendiente
-                {'carrefour.price' : {
-                  order: sort,
-                  }}
-              ]
+              match: { name: { query: name === undefined ? '' : name, fuzziness: 2 } },
             },
-
           ],
         },
       },
@@ -85,82 +79,35 @@ export class ElasticService {
       //Object.entries(objeto) devuelve un array de tuplas [propiedad, valor], donde propiedad es el nombre de la misma y valor, su valor (en este caso, booleanos)
       Object.entries(categories).forEach((categoryCriteria) => {
         let matchObject: any = {};
-        if (categoryCriteria[1]){
-
-        matchObject.term.category = categoryCriteria[0];
-        body.query.bool.must.push(matchObject);
-      }
-
-      });
-
-    if (hasDiscount !== undefined) {
-        //Object.entries(objeto) devuelve un array de tuplas [propiedad, valor], donde propiedad es el nombre de la misma y valor, su valor (en este caso, booleanos)
-        Object.entries(prices).forEach((priceCriteria) => {
-          let matchObject: any = {};
-          matchObject.term.hasDiscount = hasDiscount;
-
+        if (categoryCriteria[1]) {
+          matchObject.term.category = categoryCriteria[0];
           body.query.bool.must.push(matchObject);
-        });
-      }
+        }
+      });
     }
-    // if (prices != undefined) {
 
-    //   Object.entries(prices).forEach( (price) =>
-    //     body.query.bool.must.push({
-    //       match: { price[0]: price[1] },
-    //     })
-    //   );
-    // };
+    console.log(
+      JSON.stringify({
+        index: 'products',
+        body: body,
+      })
+    );
 
+    console.log({
+      index: 'products',
+      body: body,
+    });
 
-    const res = this.httpClient.post(
+    return this.httpClient.post(
       'url del elastic, definir como constante en algún lado',
       {
         index: 'products',
         body: body,
       }
     );
-
-    return res;
   }
 
-  // productosFrescos: boolean;
-  // conservas: boolean;
-  // refrescos: boolean;
-  // farmacia: boolean;
-  // perfumes: boolean;
-  // higiene: boolean;
-  // limpieza: boolean;
-
-  // private mergeHits(res) {
-  //   return res.hits.hits.map((hits) => {
-  //     const carrefour = hits._source;
-  //     carrefour['items'] = hits.inner_hits.carrefour.hits.hits.map(
-  //       (inner_hit) => {
-  //         return inner_hit._source;
-  //       }
-  //     );
-  //     return carrefour;
-  //   });
-  // }
-
-  // private mergeInnerHits(res) {
-  //   return res.hits.hits
-  //     .map((hits) => {
-  //       return hits.inner_hits.carrefour.hits.hits.map((inner_hit) => {
-  //         return Object.assign({}, hits._source, inner_hit._source);
-  //       });
-  //     })
-  //     .flat();
-  // }
-
   private assignRangeFromPriceCriteria(priceCriteria: [string, boolean]): any {
-
-    // "price1": true,
-    // "price5": true,
-    // "price10": true,
-    // "price50": true,
-    // "priceHigh": true,
 
     let rangeCondition: any = {};
 
@@ -206,5 +153,7 @@ export class ElasticService {
         };
       }
     }
+
+    return rangeCondition;
   }
 }
