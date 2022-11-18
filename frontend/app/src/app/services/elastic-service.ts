@@ -1,11 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ElasticService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
+
+  private elasticAuthHeader: string = "Basic " + btoa("elastic:riws")
+  private httpOptions = {
+    headers: new HttpHeaders({
+      Authorization: this.elasticAuthHeader,
+    })
+  }
 
   getCarrefourItems(
     name: string,
@@ -99,11 +106,12 @@ export class ElasticService {
     });
 
     return this.httpClient.post(
-      'url del elastic, definir como constante en algún lado',
+      'https://localhost:9200',
       {
         index: 'products',
         body: body,
-      }
+      },
+      this.httpOptions
     );
   }
 
