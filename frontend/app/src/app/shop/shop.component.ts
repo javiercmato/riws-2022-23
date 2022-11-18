@@ -49,7 +49,6 @@ export class ShopComponent implements OnInit {
   }
 
   updateAllPricesComplete() {
-    //this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
     this.allPricesComplete =
       this.filters.get('prices')?.get('price1')?.value &&
       this.filters.get('prices')?.get('price5')?.value &&
@@ -79,7 +78,6 @@ export class ShopComponent implements OnInit {
   }
 
   updateAllCategoriesComplete() {
-    //this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
     this.allPricesComplete =
       this.filters.get('categories')?.get('productosFrescos')?.value &&
       this.filters.get('categories')?.get('conservas')?.value &&
@@ -161,7 +159,7 @@ export class ShopComponent implements OnInit {
   search(): void {
     this.searchService.getCarrefourItems(this.searchName, this.getCategoriesFormValues(), this.getPricesFormValues(), this.filters.get('offersAll')?.value, this.sort).pipe(take(1)).subscribe((response: any) => {
       console.log(response)
-      //this.items = reponse.hits;
+      this.items = response.hits.hits;
     });
   }
 

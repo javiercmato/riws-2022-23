@@ -149,7 +149,7 @@
 
     <!-- Shop Product Start -->
     <div class="flex flex-col w-full">
-      <div class="flex flex-row w-full">
+      <div class="flex flex-row w-full p-3 justify-start items-center">
         <mat-form-field class="example-form-field" appearance="fill">
           <input matInput type="text" [(ngModel)]="searchName" />
           <button matSuffix mat-icon-button (click)="search()">
@@ -158,14 +158,14 @@
         </mat-form-field>
         <div class="justify-between items-center">
           <mat-radio-group [(ngModel)]="sort">
-            <mat-radio-button value="asc">Precio más bajo</mat-radio-button>
-            <mat-radio-button value="desc">Precio más alto</mat-radio-button>
+            <mat-radio-button class="p-2" value="asc">Precio más bajo</mat-radio-button>
+            <mat-radio-button class="p-2" value="desc">Precio más alto</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
       <div class="flex flex-wrap">
         <ng-template ngFor let-item [ngForOf]="items">
-          <app-item-card [item]="item">
+          <app-item-card class="p-1" [item]="item">
           </app-item-card>
         </ng-template>
       </div>

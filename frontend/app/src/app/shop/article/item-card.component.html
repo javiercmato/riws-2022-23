@@ -3,7 +3,9 @@
     <mat-card-title>{{ item.shop }}</mat-card-title>
     <mat-card-subtitle>{{ item.branch }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="item.pictureURL" [alt]="item.name" />
+  <div class="items-center justify-between">
+    <img mat-card-image [src]="item.pictureURL" [alt]="item.name" />
+  </div>
   <mat-card-content>
     <p>
         {{ item.badges }}

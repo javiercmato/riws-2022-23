@@ -10,7 +10,7 @@ export interface Item {
   prices: {
     totalPrice: string;
     unitPrice: string;
-    priceBefore: string;
+    priceBefore: string | null;
     hasDiscount: boolean;
   };
 }
