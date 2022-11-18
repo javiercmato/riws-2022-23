@@ -55,23 +55,6 @@ export class ElasticService {
         },
       },
     };
-    //   {
-    //     "category": "Bebidas",
-    //     "subcategory": "Refrescos",
-    //     "branch": "Colas",
-    //     "name": "Coca Cola zero az\u00facar zero cafe\u00edna pack 24 latas 33 cl.",
-    //     "pictureURL": "https://static.carrefour.es/hd_350x_/img_pim_food/303653_00_1.jpg",
-    //     "shop": "Carrefour",
-    //     "badges": [],
-    //     "features": [],
-    //     "prices": {
-    //         "totalPrice": "18,24 \u20ac",
-    //         "unitPrice": "2,30 \u20ac/l",
-    //         "priceBefore": null,
-    //         "hasDiscount": false
-    //     }
-    // }
-
     if (prices !== undefined) {
       //Object.entries(objeto) devuelve un array de tuplas [propiedad, valor], donde propiedad es el nombre de la misma y valor, su valor (en este caso, booleanos)
       Object.entries(prices).forEach((priceCriteria) => {
@@ -93,13 +76,6 @@ export class ElasticService {
       });
     }
 
-    console.log(
-      JSON.stringify({
-        index: 'products',
-        body: body,
-      })
-    );
-
     console.log({
       index: 'products',
       body: body,
@@ -107,10 +83,7 @@ export class ElasticService {
 
     return this.httpClient.post(
       'https://localhost:9200/products/_search',
-      {
-        index: 'products',
-        body: body,
-      },
+      body,
       this.httpOptions
     );
   }
