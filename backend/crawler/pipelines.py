@@ -2,9 +2,8 @@ import os
 from pathlib import Path
 import json
 
+import constants
 
-RESULTS_DIRECTORY_NAME = "results"
-CARREFOUR_PRODUCTS_FILE = "carrefour.json"
 
 class ProductToJSONPipeline:
 
@@ -24,7 +23,7 @@ class ProductToJSONPipeline:
         currentPath = os.path.realpath(__file__)
         currentPathName = os.path.dirname(currentPath)
         parentDirectory = Path(currentPathName).parent.absolute()
-        resultsDirectory = parentDirectory.joinpath(RESULTS_DIRECTORY_NAME)
+        resultsDirectory = parentDirectory.joinpath(constants.RESULTS_DIRECTORY_NAME)
 
         # Crear la carpeta de resultados si no existe
         if (not os.path.exists(resultsDirectory)):
@@ -34,7 +33,7 @@ class ProductToJSONPipeline:
         jsonData = json.dumps(self.carrefour_products, indent=4)
 
         # Guardar los JSON en sus ficheros
-        carrefour_file_path = os.path.join(resultsDirectory, CARREFOUR_PRODUCTS_FILE)
+        carrefour_file_path = os.path.join(resultsDirectory, constants.CARREFOUR_PRODUCTS_FILE)
         try:
             # Intenta escribir en el fichero
             carrefour_file = open(carrefour_file_path, 'w')

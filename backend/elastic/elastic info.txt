@@ -1,0 +1,34 @@
+Configuración de Elastic
+
+Nombre del contenedor:
+elasticsearch
+
+Para indicar el nombre del nodo se hace con --name <nombre nodo>
+
+Contraseña del usuario "elastic":
+TfP48ogjpNuViWnSUi5p
+
+Elastic enrollment token:
+eyJ2ZXIiOiI4LjUuMSIsImFkciI6WyIxNzIuMTguMC4yOjkyMDAiXSwiZmdyIjoiODdkZTUwZTc3NWQxZDFjNGFjNmEwOWQxYzJhMjE2ODU0NDIxYWM0NmY0ZmMyOTUwMzI4ZmZiNDA0ODRkMTk0MyIsImtleSI6InBfd0dpb1FCNHRxaTFvdHItejhTOnU3Qm9rajU1UzBDLUlHa2I5RnVtSmcifQ==
+
+
+Si se ejecuta Elastic desde docker, copiar el enrollment token y ejecutar:
+docker run -e "ENROLLMENT_TOKEN=<token>" docker.elastic.co/elasticsearch/elasticsearch:8.5.1
+
+Descargar el certificado de seguridad generado por Elastic a nuestra máquina (. indica que se descarga al directorio actual):
+docker cp <nombre contenedor>:/usr/share/elasticsearch/config/certs/http_ca.crt .
+
+Para comprobar que se puede conectar correctamente a Elastic:
+curl --cacert http_ca.crt -u elastic https://localhost:9200
+(Hacerlo sin el certificado da un problema con SSL)
+
+
+
+Los enrollment token se usan para poder conectar más nodos a un cluster.
+Solo duran 30 minutos. para generar otro token es necesario ejecutar:
+docker exec -it <nombre del nodo> /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s node
+
+Por ejemplo, tras generar un nuevo nodo "node2", para añadirlo al cluster:
+docker run -e ENROLLMENT_TOKEN=<nuevo token> --name node2 ---it docker.elastic.co/elasticsearch/elasticsearch:8.5.1
+
+

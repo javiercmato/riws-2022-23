@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait as browserWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-DYNAMIC_CONTENT_LOAD_TIME = 15               # Segundos a esperar para que cargue el contenido dinámico
+DYNAMIC_CONTENT_LOAD_TIME = 10               # Segundos a esperar para que cargue el contenido dinámico
 
 
 def printHTML(source_code):
@@ -55,12 +55,12 @@ class CarrefourSpider(CrawlSpider):
     )
     # Categorías a explorar
     desiredCategoriesName = [
+        "Bebidas",
         "Productos Frescos",
         "La Despensa",
-        "Bebidas",
         "Limpieza y Hogar",
         "Perfumería e Higiene",
-        "Parafarmacia",
+        #"Parafarmacia",
     ] #
     def __init__(self):
         """Prepara el Spider y una instancia del navegador"""
@@ -160,11 +160,11 @@ class CarrefourSpider(CrawlSpider):
             'branch': branchName
         }
         products = self.parse_products_from_grid(response, data)
-        # Obtener siguiente pagina de resultados paginados
-        self.visit_next_results_page(response)
-
         for product in products:
             yield product
+
+        # Obtener siguiente pagina de resultados paginados
+        yield self.visit_next_results_page(response)
 
         
 
@@ -233,6 +233,8 @@ class CarrefourSpider(CrawlSpider):
         # Parsear los datos del producto
         imgTag = cardContent.find('img', 'product-card__image', recursive=True)
         imageURL = imgTag['src'] if (imgTag['src'] is not None) else imgTag['data-src']
+        if ('base64' in imageURL):
+            return None
         nameTag = cardContent.find('h2', 'product-card__title', recursive=True)
         badgeTags = cardContent.find_all('span', 'badge__name', recursive=True)
         badges = list(
@@ -309,13 +311,13 @@ class CarrefourSpider(CrawlSpider):
         try:
             # self.products_browser.implicitly_wait(DYNAMIC_CONTENT_LOAD_TIME)
             browserWait(self.products_browser, DYNAMIC_CONTENT_LOAD_TIME).until(
-                # Espera hasta que no exista ninguna tarjeta que tenga tenga una imagen cargando
+                # Espera a que todas las imágenes de los productos hayan cargado
                 EC.visibility_of_element_located(
                     (By.XPATH, '//img[ @class="product-card__image" and contains(@lazy, "loaded") ]')
                 )
             )
         except TimeoutException:
-            print('Error al cargar dinámicamente los elementos de ' + str(page_url))
+            print('## Error al cargar dinámicamente los elementos de ' + str(page_url))
         finally:
             return self.products_browser.page_source
 
@@ -331,6 +333,6 @@ class CarrefourSpider(CrawlSpider):
             nextPageButton = list(paginationContainer.find_all('a', '', recursive=True))[-1]
             nextPageLink = nextPageButton['href']
 
-            print('>> Visitando siguiente página ' + str(nextPageLink))
+            print('## Visitando siguiente página ' + str(nextPageLink))
             yield Request(nextPageLink, callback = self.extract_data)
 
